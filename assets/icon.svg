@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="128" height="128" viewBox="0 0 128 128">
+  <defs>
+    <linearGradient id="bgGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#1E293B"/>
+      <stop offset="100%" stop-color="#0F172A"/>
+    </linearGradient>
+    <linearGradient id="roofGrad" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#1F70D6"/>
+      <stop offset="100%" stop-color="#2563EB"/>
+    </linearGradient>
+  </defs>
+  <rect x="4" y="4" width="120" height="120" rx="26" fill="url(#bgGrad)" stroke="#38BDF8" stroke-width="3"/>
+  <!-- Store Building Base -->
+  <rect x="20" y="48" width="88" height="60" rx="6" fill="#F1F5F9" stroke="#CBD5E1" stroke-width="2"/>
+  <!-- Minimarket Brand Stripes -->
+  <rect x="16" y="30" width="96" height="22" rx="6" fill="url(#roofGrad)"/>
+  <rect x="16" y="44" width="96" height="4" fill="#F28A2E"/>
+  <rect x="16" y="48" width="96" height="4" fill="#2EB872"/>
+  <!-- Awning scallops -->
+  <circle cx="28" cy="54" r="6" fill="#1F70D6"/>
+  <circle cx="40" cy="54" r="6" fill="#FFFFFF"/>
+  <circle cx="52" cy="54" r="6" fill="#1F70D6"/>
+  <circle cx="64" cy="54" r="6" fill="#FFFFFF"/>
+  <circle cx="76" cy="54" r="6" fill="#1F70D6"/>
+  <circle cx="88" cy="54" r="6" fill="#FFFFFF"/>
+  <circle cx="100" cy="54" r="6" fill="#1F70D6"/>
+  <!-- Sliding Glass Door & Windows -->
+  <rect x="28" y="64" width="24" height="30" rx="3" fill="#BAE6FD" stroke="#64748B" stroke-width="2"/>
+  <line x1="32" y1="88" x2="46" y2="68" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round"/>
+  <rect x="58" y="64" width="42" height="44" rx="2" fill="#7DD3FC" stroke="#334155" stroke-width="2.5"/>
+  <line x1="79" y1="64" x2="79" y2="108" stroke="#334155" stroke-width="2"/>
+  <!-- Signboard Badge -->
+  <rect x="38" y="16" width="52" height="16" rx="5" fill="#FACC15" stroke="#FEF08A" stroke-width="1.5"/>
+  <circle cx="48" cy="24" r="3" fill="#EA580C"/>
+  <rect x="55" y="22" width="26" height="4" rx="2" fill="#1E293B"/>
+</svg>

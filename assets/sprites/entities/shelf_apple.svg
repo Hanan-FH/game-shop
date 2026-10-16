@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="96" height="64" viewBox="-48 -32 96 64">
+  <!-- Shadow & Base -->
+  <rect x="-44" y="10" width="88" height="14" rx="3" fill="#141923" fill-opacity="0.25"/>
+  <rect x="-42" y="16" width="84" height="6" rx="1" fill="#404759"/>
+  <rect x="-44" y="20" width="88" height="3" rx="1" fill="#2E3340"/>
+  <!-- Pegboard Back -->
+  <rect x="-40" y="-24" width="80" height="42" fill="#E6EBF2" stroke="#BFC7D6" stroke-width="1"/>
+  <!-- Upright Posts -->
+  <rect x="-42" y="-26" width="6" height="44" fill="#BFC7D6"/>
+  <rect x="36" y="-26" width="6" height="44" fill="#BFC7D6"/>
+  <!-- Top Crown -->
+  <rect x="-44" y="-28" width="88" height="5" rx="1.5" fill="#D1D9E6" stroke="#94A3B8" stroke-width="1"/>
+  <!-- Shelf Plates -->
+  <rect x="-40" y="-4" width="80" height="4" fill="#F5F8FC"/>
+  <rect x="-40" y="14" width="80" height="4" fill="#F5F8FC"/>
+  <!-- Colored Price Rails -->
+  <rect x="-32" y="-27" width="64" height="3" rx="1" fill="#29AD61"/>
+  <rect x="-40" y="-2" width="80" height="3" fill="#29AD61"/>
+  <rect x="-40" y="16" width="80" height="3" fill="#29AD61"/>
+  <!-- White Price Tags -->
+  <rect x="-26" y="-2" width="12" height="3" fill="#FFFFFF"/>
+  <rect x="0" y="-2" width="12" height="3" fill="#FFFFFF"/>
+  <rect x="26" y="-2" width="12" height="3" fill="#FFFFFF"/>
+  <rect x="-26" y="16" width="12" height="3" fill="#FFFFFF"/>
+  <rect x="0" y="16" width="12" height="3" fill="#FFFFFF"/>
+  <rect x="26" y="16" width="12" height="3" fill="#FFFFFF"/>
+  <!-- Acrylic Retainers -->
+  <rect x="-40" y="-5" width="80" height="2" fill="#D9EBF9" fill-opacity="0.65"/>
+  <rect x="-40" y="13" width="80" height="2" fill="#D9EBF9" fill-opacity="0.65"/>
+</svg>

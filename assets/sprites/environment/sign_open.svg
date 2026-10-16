@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="60" height="36" viewBox="-30 -14 60 36">
+  <rect x="-10" y="14" width="20" height="4" rx="1" fill="#3D4252"/>
+  <rect x="-2" y="8" width="4" height="8" fill="#596173"/>
+  <rect x="-27" y="-10" width="54" height="20" rx="3" fill="#14331F" stroke="#40F280" stroke-width="1.8"/>
+  <polyline points="-23,-6 -25,-6 -25,6 -23,6" fill="none" stroke="#66FAA6" stroke-width="1.5"/>
+  <polyline points="23,-6 25,-6 25,6 23,6" fill="none" stroke="#66FAA6" stroke-width="1.5"/>
+  <!-- BUKA -->
+  <path d="M-17,-5 L-17,5 M-17,-5 L-13,-5 L-13,0 L-17,0 M-13,0 L-13,5 L-17,5" stroke="#66FAA6" stroke-width="1.4" fill="none"/>
+  <path d="M-9,-5 L-9,5 L-4,5 L-4,-5" stroke="#66FAA6" stroke-width="1.4" fill="none"/>
+  <path d="M0,-5 L0,5 M0,0 L5,-5 M0,0 L5,5" stroke="#66FAA6" stroke-width="1.4" fill="none"/>
+  <path d="M9,5 L12,-5 L15,5 M10,1 L14,1" stroke="#66FAA6" stroke-width="1.4" fill="none"/>
+</svg>
