@@ -1,0 +1,216 @@
+[gd_scene load_steps=14 format=3]
+
+[ext_resource type="Script" path="res://scenes/shop/main.gd" id="1_main"]
+[ext_resource type="PackedScene" path="res://scenes/shop/ShopEnvironment.tscn" id="2_shop"]
+[ext_resource type="PackedScene" path="res://scenes/entities/Shelf.tscn" id="3_shelf"]
+[ext_resource type="PackedScene" path="res://scenes/entities/CashierCounter.tscn" id="4_counter"]
+[ext_resource type="PackedScene" path="res://scenes/entities/CustomerSpawner.tscn" id="5_spawner"]
+[ext_resource type="PackedScene" path="res://scenes/player/Player.tscn" id="6_player"]
+[ext_resource type="PackedScene" path="res://scenes/entities/RestockCrate.tscn" id="7_restock"]
+[ext_resource type="PackedScene" path="res://scenes/entities/UpgradeStation.tscn" id="8_upgrade"]
+[ext_resource type="PackedScene" path="res://scenes/ui/DaySummaryModal.tscn" id="9_summary"]
+[ext_resource type="PackedScene" path="res://scenes/entities/Bench.tscn" id="10_bench"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hud"]
+content_margin_left = 16.0
+content_margin_top = 8.0
+content_margin_right = 16.0
+content_margin_bottom = 8.0
+bg_color = Color(0.117647, 0.133333, 0.176471, 0.901961)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.352941, 0.45098, 0.54902, 0.4)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_badge"]
+content_margin_left = 10.0
+content_margin_top = 4.0
+content_margin_right = 10.0
+content_margin_bottom = 4.0
+bg_color = Color(0.160784, 0.180392, 0.231373, 0.85098)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.960784, 0.784314, 0.419608, 0.501961)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_btn_open"]
+content_margin_left = 12.0
+content_margin_top = 4.0
+content_margin_right = 12.0
+content_margin_bottom = 4.0
+bg_color = Color(0.18, 0.65, 0.35, 0.95)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.98, 0.85, 0.35, 1.0)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_main")
+
+[node name="ShopEnvironment" parent="." instance=ExtResource("2_shop")]
+
+[node name="Shelves" type="Node2D" parent="."]
+
+[node name="ShelfSoda" parent="Shelves" instance=ExtResource("3_shelf")]
+position = Vector2(320, 160)
+item_type = "soda"
+current_stock = 3
+
+[node name="ShelfSnack" parent="Shelves" instance=ExtResource("3_shelf")]
+position = Vector2(576, 160)
+item_type = "snack"
+current_stock = 4
+
+[node name="ShelfApple" parent="Shelves" instance=ExtResource("3_shelf")]
+position = Vector2(832, 160)
+item_type = "apple"
+current_stock = 2
+
+[node name="CashierCounter" parent="." instance=ExtResource("4_counter")]
+position = Vector2(260, 420)
+
+[node name="Bench" parent="." instance=ExtResource("10_bench")]
+position = Vector2(350, 400)
+
+[node name="CustomerSpawner" parent="." instance=ExtResource("5_spawner")]
+
+[node name="RestockArea" type="Node2D" parent="."]
+
+[node name="CrateSoda" parent="RestockArea" instance=ExtResource("7_restock")]
+position = Vector2(780, 500)
+item_type = "soda"
+
+[node name="CrateSnack" parent="RestockArea" instance=ExtResource("7_restock")]
+position = Vector2(850, 500)
+item_type = "snack"
+
+[node name="CrateApple" parent="RestockArea" instance=ExtResource("7_restock")]
+position = Vector2(920, 500)
+item_type = "apple"
+
+[node name="UpgradeStation" parent="." instance=ExtResource("8_upgrade")]
+position = Vector2(950, 240)
+
+[node name="Player" parent="." instance=ExtResource("6_player")]
+position = Vector2(576, 360)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(576, 324)
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="HUDMargin" type="MarginContainer" parent="UI"]
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 50.0
+grow_horizontal = 2
+theme_override_constants/margin_left = 18
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 18
+
+[node name="PanelContainer" type="PanelContainer" parent="UI/HUDMargin"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_hud")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="UI/HUDMargin/PanelContainer"]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="TitleLabel" type="Label" parent="UI/HUDMargin/PanelContainer/HBoxContainer"]
+layout_mode = 2
+text = "MINI SHOP"
+theme_override_colors/font_color = Color(0.960784, 0.784314, 0.419608, 1)
+
+[node name="StatusContainer" type="PanelContainer" parent="UI/HUDMargin/PanelContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_badge")
+
+[node name="StatusLabel" type="Label" parent="UI/HUDMargin/PanelContainer/HBoxContainer/StatusContainer"]
+layout_mode = 2
+text = "PERSIAPAN"
+theme_override_colors/font_color = Color(0.980392, 0.85098, 0.352941, 1)
+
+[node name="OpenButton" type="Button" parent="UI/HUDMargin/PanelContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_btn_open")
+theme_override_styles/hover = SubResource("StyleBoxFlat_btn_open")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_btn_open")
+text = "Buka Toko [E]"
+
+[node name="DayContainer" type="PanelContainer" parent="UI/HUDMargin/PanelContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_badge")
+
+[node name="DayLabel" type="Label" parent="UI/HUDMargin/PanelContainer/HBoxContainer/DayContainer"]
+layout_mode = 2
+text = "Hari 1"
+theme_override_colors/font_color = Color(0.85, 0.88, 0.95, 1)
+
+[node name="TimeContainer" type="PanelContainer" parent="UI/HUDMargin/PanelContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_badge")
+
+[node name="TimeLabel" type="Label" parent="UI/HUDMargin/PanelContainer/HBoxContainer/TimeContainer"]
+layout_mode = 2
+text = "08:00"
+theme_override_colors/font_color = Color(0.45, 0.88, 0.75, 1)
+
+[node name="ControlsLabel" type="Label" parent="UI/HUDMargin/PanelContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Kontrol: [WASD] Gerak | [E] Interaksi"
+theme_override_colors/font_color = Color(0.78, 0.82, 0.88, 1)
+horizontal_alignment = 1
+
+[node name="CustomerContainer" type="PanelContainer" parent="UI/HUDMargin/PanelContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_badge")
+
+[node name="CustomerLabel" type="Label" parent="UI/HUDMargin/PanelContainer/HBoxContainer/CustomerContainer"]
+layout_mode = 2
+text = "Toko: 0/4"
+theme_override_colors/font_color = Color(0.65, 0.85, 0.95, 1)
+
+[node name="ReputationContainer" type="PanelContainer" parent="UI/HUDMargin/PanelContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_badge")
+
+[node name="ReputationLabel" type="Label" parent="UI/HUDMargin/PanelContainer/HBoxContainer/ReputationContainer"]
+layout_mode = 2
+text = "Rating: 5.0"
+theme_override_colors/font_color = Color(0.980392, 0.85098, 0.352941, 1)
+
+[node name="ServedContainer" type="PanelContainer" parent="UI/HUDMargin/PanelContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_badge")
+
+[node name="ServedLabel" type="Label" parent="UI/HUDMargin/PanelContainer/HBoxContainer/ServedContainer"]
+layout_mode = 2
+text = "Selesai: 0"
+theme_override_colors/font_color = Color(0.55, 0.88, 0.95, 1)
+
+[node name="MoneyContainer" type="PanelContainer" parent="UI/HUDMargin/PanelContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_badge")
+
+[node name="MoneyLabel" type="Label" parent="UI/HUDMargin/PanelContainer/HBoxContainer/MoneyContainer"]
+layout_mode = 2
+text = "$50"
+theme_override_colors/font_color = Color(0.980392, 0.85098, 0.352941, 1)
+
+[node name="DaySummaryModal" parent="." instance=ExtResource("9_summary")]

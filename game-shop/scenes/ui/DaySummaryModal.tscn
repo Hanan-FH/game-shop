@@ -1,0 +1,238 @@
+[gd_scene load_steps=6 format=3]
+
+[ext_resource type="Script" path="res://scenes/ui/day_summary_modal.gd" id="1_modal"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_modal"]
+content_margin_left = 28.0
+content_margin_top = 22.0
+content_margin_right = 28.0
+content_margin_bottom = 22.0
+bg_color = Color(0.117647, 0.133333, 0.176471, 0.980392)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.960784, 0.784314, 0.419608, 0.85098)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+shadow_color = Color(0, 0, 0, 0.4)
+shadow_size = 12
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_btn_normal"]
+content_margin_left = 16.0
+content_margin_top = 10.0
+content_margin_right = 16.0
+content_margin_bottom = 10.0
+bg_color = Color(0.235294, 0.490196, 0.392157, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.482353, 0.819608, 0.54902, 0.8)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_btn_hover"]
+content_margin_left = 16.0
+content_margin_top = 10.0
+content_margin_right = 16.0
+content_margin_bottom = 10.0
+bg_color = Color(0.282353, 0.588235, 0.470588, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.6, 0.95, 0.65, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_btn_pressed"]
+content_margin_left = 16.0
+content_margin_top = 10.0
+content_margin_right = 16.0
+content_margin_bottom = 10.0
+bg_color = Color(0.180392, 0.392157, 0.313726, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.35, 0.7, 0.45, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[node name="DaySummaryModal" type="CanvasLayer"]
+layer = 10
+script = ExtResource("1_modal")
+
+[node name="DimOverlay" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0588235, 0.0705882, 0.0980392, 0.784314)
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ModalPanel" type="PanelContainer" parent="CenterContainer"]
+custom_minimum_size = Vector2(460, 0)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_modal")
+
+[node name="MarginContainer" type="MarginContainer" parent="CenterContainer/ModalPanel"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/ModalPanel/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="HeaderBox" type="VBoxContainer" parent="CenterContainer/ModalPanel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="Title" type="Label" parent="CenterContainer/ModalPanel/MarginContainer/VBoxContainer/HeaderBox"]
+layout_mode = 2
+text = "LAPORAN AKHIR HARI"
+theme_override_colors/font_color = Color(0.960784, 0.784314, 0.419608, 1)
+theme_override_font_sizes/font_size = 20
+horizontal_alignment = 1
+
+[node name="DayLabel" type="Label" parent="CenterContainer/ModalPanel/MarginContainer/VBoxContainer/HeaderBox"]
+layout_mode = 2
+text = "Hari Ke-1 Telah Ditutup (21:00)"
+theme_override_colors/font_color = Color(0.784314, 0.819608, 0.882353, 1)
+theme_override_font_sizes/font_size = 13
+horizontal_alignment = 1
+
+[node name="HSeparator1" type="HSeparator" parent="CenterContainer/ModalPanel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="StatsBox" type="VBoxContainer" parent="CenterContainer/ModalPanel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="RevenueRow" type="HBoxContainer" parent="CenterContainer/ModalPanel/MarginContainer/VBoxContainer/StatsBox"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CenterContainer/ModalPanel/MarginContainer/VBoxContainer/StatsBox/RevenueRow"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Total Penjualan Hari Ini:"
+
+[node name="Value" type="Label" parent="CenterContainer/ModalPanel/MarginContainer/VBoxContainer/StatsBox/RevenueRow"]
+layout_mode = 2
+text = "+$0"
+theme_override_colors/font_color = Color(0.482353, 0.819608, 0.54902, 1)
+
+[node name="ExpensesRow" type="HBoxContainer" parent="CenterContainer/ModalPanel/MarginContainer/VBoxContainer/StatsBox"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CenterContainer/ModalPanel/MarginContainer/VBoxContainer/StatsBox/ExpensesRow"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Biaya Pasokan Grosir:"
+
+[node name="Value" type="Label" parent="CenterContainer/ModalPanel/MarginContainer/VBoxContainer/StatsBox/ExpensesRow"]
+layout_mode = 2
+text = "-$0"
+theme_override_colors/font_color = Color(0.95, 0.45, 0.45, 1)
+
+[node name="WagesRow" type="HBoxContainer" parent="CenterContainer/ModalPanel/MarginContainer/VBoxContainer/StatsBox"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CenterContainer/ModalPanel/MarginContainer/VBoxContainer/StatsBox/WagesRow"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Gaji Karyawan Kasir:"
+
+[node name="Value" type="Label" parent="CenterContainer/ModalPanel/MarginContainer/VBoxContainer/StatsBox/WagesRow"]
+layout_mode = 2
+text = "-$0"
+theme_override_colors/font_color = Color(0.95, 0.55, 0.45, 1)
+
+[node name="ProfitRow" type="HBoxContainer" parent="CenterContainer/ModalPanel/MarginContainer/VBoxContainer/StatsBox"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CenterContainer/ModalPanel/MarginContainer/VBoxContainer/StatsBox/ProfitRow"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Laba Bersih Hari Ini:"
+
+[node name="Value" type="Label" parent="CenterContainer/ModalPanel/MarginContainer/VBoxContainer/StatsBox/ProfitRow"]
+layout_mode = 2
+text = "+$0"
+theme_override_colors/font_color = Color(0.980392, 0.85098, 0.352941, 1)
+
+[node name="ServedRow" type="HBoxContainer" parent="CenterContainer/ModalPanel/MarginContainer/VBoxContainer/StatsBox"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CenterContainer/ModalPanel/MarginContainer/VBoxContainer/StatsBox/ServedRow"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Pelanggan Berhasil Dilayani:"
+
+[node name="Value" type="Label" parent="CenterContainer/ModalPanel/MarginContainer/VBoxContainer/StatsBox/ServedRow"]
+layout_mode = 2
+text = "0 orang"
+
+[node name="MissedRow" type="HBoxContainer" parent="CenterContainer/ModalPanel/MarginContainer/VBoxContainer/StatsBox"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CenterContainer/ModalPanel/MarginContainer/VBoxContainer/StatsBox/MissedRow"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Pelanggan Kecewa (Stok Habis / Marah):"
+
+[node name="Value" type="Label" parent="CenterContainer/ModalPanel/MarginContainer/VBoxContainer/StatsBox/MissedRow"]
+layout_mode = 2
+text = "0 orang"
+theme_override_colors/font_color = Color(0.95, 0.65, 0.35, 1)
+
+[node name="RatingRow" type="HBoxContainer" parent="CenterContainer/ModalPanel/MarginContainer/VBoxContainer/StatsBox"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CenterContainer/ModalPanel/MarginContainer/VBoxContainer/StatsBox/RatingRow"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Rating Kepuasan Toko:"
+
+[node name="Value" type="Label" parent="CenterContainer/ModalPanel/MarginContainer/VBoxContainer/StatsBox/RatingRow"]
+layout_mode = 2
+text = "5.0 / 5.0"
+theme_override_colors/font_color = Color(0.980392, 0.85098, 0.352941, 1)
+
+[node name="BalanceRow" type="HBoxContainer" parent="CenterContainer/ModalPanel/MarginContainer/VBoxContainer/StatsBox"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CenterContainer/ModalPanel/MarginContainer/VBoxContainer/StatsBox/BalanceRow"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Saldo Kas Akhir:"
+
+[node name="Value" type="Label" parent="CenterContainer/ModalPanel/MarginContainer/VBoxContainer/StatsBox/BalanceRow"]
+layout_mode = 2
+text = "$50"
+theme_override_colors/font_color = Color(0.482353, 0.819608, 0.54902, 1)
+
+[node name="HSeparator2" type="HSeparator" parent="CenterContainer/ModalPanel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="NextDayButton" type="Button" parent="CenterContainer/ModalPanel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_btn_normal")
+theme_override_styles/hover = SubResource("StyleBoxFlat_btn_hover")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_btn_pressed")
+text = "Lanjut ke Hari Ke-2 (Fase Persiapan)"

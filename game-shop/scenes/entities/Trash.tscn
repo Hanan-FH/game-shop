@@ -1,0 +1,53 @@
+[gd_scene load_steps=4 format=3]
+
+[ext_resource type="Script" path="res://scenes/entities/trash.gd" id="1_trash"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_trigger"]
+radius = 18.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_prompt"]
+content_margin_left = 8.0
+content_margin_top = 3.0
+content_margin_right = 8.0
+content_margin_bottom = 3.0
+bg_color = Color(0.117647, 0.133333, 0.176471, 0.941176)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.980392, 0.823529, 0.352941, 0.7)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[node name="Trash" type="Area2D"]
+collision_layer = 2
+collision_mask = 1
+script = ExtResource("1_trash")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_trigger")
+
+[node name="PromptAnchor" type="Node2D" parent="."]
+position = Vector2(0, -20)
+
+[node name="PromptContainer" type="PanelContainer" parent="PromptAnchor"]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -75.0
+offset_top = -22.0
+offset_right = 75.0
+grow_horizontal = 2
+grow_vertical = 0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_prompt")
+
+[node name="PromptLabel" type="Label" parent="PromptAnchor/PromptContainer"]
+layout_mode = 2
+text = "[E] Bersihkan Sampah"
+horizontal_alignment = 1
+vertical_alignment = 1
